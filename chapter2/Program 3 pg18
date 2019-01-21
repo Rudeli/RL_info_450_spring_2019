@@ -1,1 +1,18 @@
+// This program converts gallons to liters
 
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int gallons;
+	int liters;
+	cout << "Enter number of gallons : ";
+	cin >> gallons; // This inputs from the user
+	
+	liters = gallons * 4; //Converts gallons to liters.
+	cout << "Gallons in Liters: " << liters;
+
+	return 0;
+
+}
