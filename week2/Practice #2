@@ -1,0 +1,53 @@
+//Shows if number inputted is prime. This works for positive and negative integers. 
+#include <iostream>;
+using namespace std;
+
+int main()
+{
+	int StayOrExit = 1;
+	int userInput, i;
+	bool isPrime = true;
+
+	cout << "Enter 0 to exit. Enter an integer: ";
+	cin >> userInput;
+	while (userInput != 0) {
+		
+    //This is for negative user inputs
+    if (userInput < 0)
+		{
+			userInput *= -1;
+		}
+    
+    //Checks to see if it is prime with 2. If not try 3. Then 4 and so on and so forth. 
+		for (i = 2; i <= userInput / 2; ++i)
+		{
+			if (userInput % i == 0)
+			{
+				isPrime = false;
+				break;
+			}
+		}
+    
+    //After we update the bool isPrime we then print it out to console.
+		if (isPrime) {
+			cout << "This is a prime number"<<endl;
+			cout << "Enter 0 to exit. Enter an integer: "<<endl;
+			cin >> userInput;
+		}
+		else {
+			cout << "This is not a prime number"<<endl;
+			cout << "Enter 0 to exit. Enter an integer: "<<endl;
+			cin >> userInput;
+			isPrime = true; //THIS PART IS VERY IMPORTANT. SPENT HOURS OVERLOOKING THIS! MUST BRING IT BACK TO TRUE AFTER EACH RUN!
+
+		}
+
+    //For users to exit if they enter 0
+		if (userInput == 0)
+		{
+			break;
+		}
+	}
+  
+	return 0;
+}
