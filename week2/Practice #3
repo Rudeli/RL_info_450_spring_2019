@@ -1,0 +1,48 @@
+//Determine if it is a leap year
+#include <iostream>;
+using namespace std;
+
+int main() 
+{
+	int userYear;
+	cout << "Enter 0 to exit or Enter Year here:" << endl;
+	cin >> userYear;
+
+	while (userYear != -1) {
+		
+		if (userYear % 4 == 0)
+		{
+			//This rules out the 1800's and the 1900's
+			if (userYear % 100 == 0 && userYear % 400 == 0)
+			{
+				cout << "This is a leap Year." << endl;
+				cout << "Enter 0 to exit or Enter Year here:" << endl;
+			}
+			//Because it has been subsetted so many times from the other conditions, everything else can be a leap year.
+			else if(userYear % 100 != 0)
+			{
+				cout << "This is a leap Year." << endl;
+			}
+
+			else
+			{
+				cout << "This is not a leap Year." << endl;
+				cout << "Enter 0 to exit or Enter Year here:" << endl;
+			}
+		}
+
+		//Anything %4 != 0 is not a leap year
+		else
+		{
+			cout << "Not a leap year" << endl;
+			cout << "Enter 0 to exit or Enter Year here:" << endl;
+		}
+
+		if (userYear == 0)
+		{
+			break;
+		}
+		cin >> userYear;
+	}
+	return 0;
+}
