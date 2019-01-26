@@ -1,0 +1,23 @@
+//This program accepts positive value and print the squared version. 0 to exit
+
+#include <iostream>;
+using namespace std;
+
+int main() 
+{
+	
+	int user_Input = 1;
+	while (user_Input >= 0) {
+		if (user_Input > 0)
+		{
+			cout << "Enter 0 to Exit or Enter Your POSITTIVE number here: " << endl;
+			cin >> user_Input;
+			cout << "Your number squared is: " << pow(user_Input, 2) << "." << endl;
+		}
+		else if (user_Input == 0) {
+			break;
+		}
+	}
+
+	return 0;
+}
