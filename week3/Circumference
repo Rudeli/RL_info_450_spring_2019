@@ -1,0 +1,20 @@
+
+#include <iostream>
+using namespace std;
+const double PI = 3.14;
+double calculateCircumfrerence(double radius); //Do not forget to put this at the beginning for EACH function you make. 
+
+int main()
+{
+	double radius;
+	cout << "Enter Radius here: "<< endl;
+	cin >> radius;
+	cout << "Your circumference is: " << calculateCircumfrerence(radius) << "."<< endl;
+	return 0;
+}
+
+double calculateCircumfrerence(double radius)
+{
+	double Circumfrerence = 2 * PI * radius;
+	return Circumfrerence;
+}
