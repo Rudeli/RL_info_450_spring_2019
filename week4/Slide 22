@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+	//int i;
+	int Array[10];
+
+	for (int i = 0; i <= 10; i++) {
+		cout << "Enter number for Array index of " << i << " here: " << endl;
+		cin >> Array[i];
+	}
+	
+
+	//1. Find the mean
+
+	//Loop to sum up the array instead of typing it Array[1] + Array[2] + .... + Array[10]
+	int sum = 0;
+	for (int j = 0; j <= 10; j++) {
+		sum = sum + Array[j];
+	}
+
+	int mean = sum / 10;
+	cout << "The mean of the Array is " << mean << "." << endl;
+
+	//2. Then, for each number, subtract the mean and square the result.
+	int dev = 0;
+	for (int a = 0; a <= 10; a++)
+	{ 
+		dev = Array[a] - mean;
+		cout << "Array " << a << " minus the mean is " << dev << endl;
+		cout << "\t When squared it will equal " << pow(dev, 2) <<endl;
+	}
+
+	//3. Then, work out the mean of those squared differences.
+	int Array1[10];
+	int diff = 0;
+	int SumofDiff = 0;
+
+		//Same code as before for question2 but I added to lines in and took the other cout ones out. 
+	for (int b = 0; b <= 10; b++)
+	{
+		diff = Array[b] - mean;
+		Array1[b] = pow(diff,2);
+		SumofDiff = SumofDiff + Array1[b];
+	}
+
+	int DiffSqrMean = SumofDiff / 10;
+	cout << "Your mean of the array difference from the mean squared is " << DiffSqrMean << "." << endl;
+
+
+	//4. Take the square root of that, and we're done!
+
+	cout << "When Square rooted it gives us " << sqrt(DiffSqrMean) << "." << endl;
+
+	return 0;
+}
