@@ -1,0 +1,30 @@
+//Ran out of time
+
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+void getName(char &Name);
+
+int main(){
+
+	char Matrix[2][2];
+
+	char Name[100];
+	for (int i = 0; i <= 30; i++) {
+		getName(&Name[100]);
+		
+	}
+	
+	
+	
+	//cin.get();
+	return 0;
+}
+
+void getName(char &Name)
+{
+	cout << "Enter student name here: " << endl;
+	cin.getline(Name, 100);
+	//cout << "You have entered " << Name << endl;
+
+}
