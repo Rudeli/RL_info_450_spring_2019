@@ -1,1 +1,109 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
 
+class Employee
+{
+public:
+	char first[240];
+	char last[240];
+	char empType[240];
+	bool is_hourly;
+	double comp;
+
+	void set_first(const char* variable)
+	{
+		strcpy_s(first, variable); //I put "strcpy_s" because visual studio won't let me put "strcpy" alone because it is unsafe somehow.
+	}
+	void set_last(const char* variable)
+	{
+		strcpy_s(last, variable);
+	}
+	
+	void set_empType(bool is_hourly)
+	{
+		if (is_hourly == true)
+		{
+			strcpy_s(empType, "HOURLY");
+		}
+		else if (is_hourly == false)
+		{
+			strcpy_s(empType, "EXEMPT");
+		}
+		else
+		{
+			cout << "What you have entered is invalid. Try again. Try lower case true or false." <<endl;
+			cin >> is_hourly;
+		}
+	}
+
+	void set_compType(int comp)
+	{
+		if (!strcmp(empType, "HOURLY"))
+		{
+			double rate = 0;
+			cout << "Enter Hourly Rate here: " << endl;
+			cin >> rate;
+			cout << "Rate entered : " << rate;
+			comp = 2000 * rate; //2000 hours in a year * hourly rate = yearly compensentation 
+		}
+		else // if empType = 0
+		{
+			int salary = 0;
+			cout << "Enter Salary here: "<< endl;
+			cin.get() >> salary;
+			comp = salary;
+		}
+	}
+
+	void printEntry(){
+		cout << "Employee last name: " << last << endl;
+		cout <<"Employee First name: " << first << endl;
+		cout << "This is the type of employee compensentation: " << empType << endl;
+		cout << "This is the employee's compensentation: "<< comp << endl;
+	}
+
+};
+
+int main() {
+	const int maximum = 3;
+	Employee Emp[3];
+	char variable[240];
+	bool bVariable = true;
+	int Compensation = 0;
+
+	
+	for (int i = 0; i < maximum; i++)
+	{
+		cout << "Enter a first name: ";
+		cin.getline(variable, 240);
+		Emp[i].set_first(variable);
+		cout << "Entered value: " << Emp[i].first << endl;
+
+		cout << "Enter a last name: ";
+		cin.getline(variable, 240);
+		Emp[i].set_last(variable);
+		cout << "Entered value: " << Emp[i].last << endl;
+
+
+		cout << "Employee compensation is Hourly Based? True for hourly or false for annually." << endl;
+		cin.get(variable, 240);
+		Emp[i].set_empType(variable);
+		//cout << "Entered value: " << Emp[i].empType << endl;
+		
+
+		cout << "To calculate employee's compensations, ";
+		cin.getline(variable, 240);
+		Emp[i].set_compType(Compensation);
+		cout << "Entered value: " << Emp[i].comp << endl; //Big problems here
+	}
+
+
+
+	for (int x = 0; x < maximum;x++) {
+		Emp[x].printEntry();
+	}
+
+	cin.get();
+	return 0;
+}
