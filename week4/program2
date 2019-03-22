@@ -1,30 +1,23 @@
-//Ran out of time
-
 #include <iostream>
 #include <stdio.h>
 using namespace std;
-void getName(char &Name);
 
-int main(){
+int main() {
+	const int students = 30;
+	int size = 0;
+	char matrix[students][100];
 
-	char Matrix[2][2];
-
-	char Name[100];
-	for (int i = 0; i <= 30; i++) {
-		getName(&Name[100]);
-		
+	for (int i = 0; i <= students; i++) {
+		cout << "Enter 'Complete' to exit or enter student name here: " << endl;
+		cin.getline(matrix[i], students);
+		//cout << "You have entered " << matrix[i] << " in index " << i << "." << endl; //This part is optional. It is to verify it was saved into the right index. 
+		size++;
 	}
-	
-	
-	
-	//cin.get();
+
+	for (int i = 0; i < size; i++) {
+		cout << "In Student Slot " << i << ", we have: " << matrix[i] << endl;
+	}
+
+	cin.get();
 	return 0;
-}
-
-void getName(char &Name)
-{
-	cout << "Enter student name here: " << endl;
-	cin.getline(Name, 100);
-	//cout << "You have entered " << Name << endl;
-
 }
