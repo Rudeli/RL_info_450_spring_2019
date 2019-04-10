@@ -128,7 +128,7 @@ int main() {
 		else {
 			continue;
 		}
-	}
+	} // Had a lot of problems to get the loop to run again after "yes" is entered.
 
 	t1.show();
 	c.show();
