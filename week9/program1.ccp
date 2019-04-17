@@ -1,9 +1,9 @@
 //Demonstrate inheritance
 #include <iostream>
 using namespace std;
+#include <fstream>
+
 //Define the base class for vehicles
-
-
 //node *list = NULL;
 /*
 class vehicle {
@@ -15,8 +15,6 @@ class vehicle {
 	char aType[250];
 };
 */
-
-
 class road_vehicle {
 public:
 	int wheels;
@@ -34,8 +32,6 @@ public:
 		return passengers;
 	}
 };
-
-
 //Define a truck
 class truck : public road_vehicle {
 	int cargo;
@@ -78,14 +74,7 @@ void automobile::show() {
 	}
 	cout << endl;
 }
-
-
-
-
-
-
-
-class node{
+class node {
 public:
 	int data;
 	int wheels;
@@ -98,8 +87,6 @@ public:
 	node() {
 		next = NULL;
 	}
-
-
 	void set_wheels(int w) {
 		wheels = w;
 	}
@@ -116,42 +103,39 @@ public:
 		cargo = i;
 	}
 
-
-
-	/* CAN'T FIGURE THIS OUT
+	/*
+	//CAN'T FIGURE THIS OUT
 	void insert( road_vehicle) {
-		if (link_list == NULL) {
-			link_list = new node;
-			link_list -> data = road_vehicle;
+		if (next == NULL) {
+			//link_list = new node;
+			data = road_vehicle;
+			//passengers = road_vehicle::get_passengers();
 		}
 		else {
 			next->insert(road_vehicle);
 		}
 	}
+	
 	*/
-
 
 	void show() {
 		//if (next != NULL) {
-			cout << " road_vehicle " << vType << " wheels " << wheels << " passengers " << passengers;
-			if (!strcmp(vType, "truck"))
-			{
-				cout << " cargo " << cargo << endl;
-			}
-			else if (!strcmp(vType, "automobile")) {
-				cout << " type " << aType << endl;
-			}
+		cout << " road_vehicle " << vType << " wheels " << wheels << " passengers " << passengers;
+		if (!strcmp(vType, "truck"))
+		{
+			cout << " cargo " << cargo << endl;
+		}
+		else if (!strcmp(vType, "automobile")) {
+			cout << " type " << aType << endl;
+		}
 		//}
-			
+
 		//else {
 			//next = new node;
 			//next->show();
 		//}
 	}
 };
-
-
-
 int main() {
 	node list;
 	truck t1;
@@ -224,9 +208,17 @@ int main() {
 		cin.ignore();
 		cin.getline(AddMore, 10); // When "no" is entered, exit loop because it is no longer AddMore does not = "yes"
 	}
+
+
+	ofstream out;
+	out.open("test.txt");
+
 	t1.show();
 	c.show();
 	list.show();
+
+	out.close();
+
 	cin.get();
 	cin.get();
 	return 0;
