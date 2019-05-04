@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 #include <fstream>
-
 class road_vehicle {
 public:
 	int wheels;
@@ -62,7 +61,6 @@ void automobile::show() {
 	}
 	cout << endl;
 }
-
 //							 THIS IS THE NODE CLASS 
 class node {
 public:
@@ -96,7 +94,6 @@ public:
 		cargo = i;
 	}
 	*/
-
 	//CAN'T FIGURE THIS OUT
 	void insert(road_vehicle *rv) {
 		if (next == NULL) {
@@ -106,24 +103,16 @@ public:
 			next->insert(rv);
 		}
 	}
-
 	void show() {
 		cout << " road_vehicle " << "truck" << " wheels " << data.get_wheels() << " passengers " << data.get_passengers();
-
 		if (next != NULL) {
 			next->show();
 		}
 	}
 	};
-
-
-
 int main() {
 		node list;
-
 		//list->insert(&s); // This should be at the bottom after you set the numbers
-
-
 		truck t1;
 		automobile c;
 		char AddMore[10] = "yes";
@@ -194,17 +183,13 @@ int main() {
 			cin.ignore();
 			cin.getline(AddMore, 10); // When "no" is entered, exit loop because it is no longer AddMore does not = "yes"
 		}
-
 	
 		ofstream out;
 		out.open("output.txt"); //Start Writing
 		t1.show();
 		c.show();
 		list.show();
-
 		out.close(); // Stop writing
-
-
 		cin.get();
 		cin.get();
 		return 0;
